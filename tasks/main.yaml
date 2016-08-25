@@ -1,5 +1,12 @@
 ---
-
+- name: Add grafana repository
+  yum_repository:
+    name: grafana
+    description: "Grafana Repository RHEL"
+    baseurl: https://packagecloud.io/grafana/stable/el/6/$basearch
+    gpgkey: https://packagecloud.io/gpg.key https://grafanarel.s3.amazonaws.com/RPM-GPG-KEY-grafana
+    gpgcheck: yes
+    
 - name: Test distribution
   assert:
     that: ansible_os_family == "RedHat"
